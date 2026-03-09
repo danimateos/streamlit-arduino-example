@@ -19,8 +19,25 @@ if port:
     try:
         ser = serial.Serial(port, 9600, timeout=1)
         st.write(f"Connected to {port}")
+        ser.write(b"ledon\n")
+
+        led_command = st.toggle("Turn on LED")
+        beep_command = st.button("Beep")
+
+        if led_command:
+            ser.write(b"ledon\n")
+        else:
+            ser.write(b"ledoff\n")
+
+        st.write("Set LED state to {led_command}")
+
+        if beep_command:
+            ser.write(b"beep\n")
+            st.write("Beep command sent")
         ser.close()
+        
     except serial.SerialException as e:
         st.error(f"Could not connect to {port}: {e}")
+
 
 
