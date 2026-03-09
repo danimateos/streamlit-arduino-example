@@ -1,0 +1,10 @@
+[project]
+name = "streamlit-arduino-example"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pyserial>=3.5",
+    "streamlit>=1.55.0",
+]
