@@ -29,7 +29,7 @@ if port:
         else:
             ser.write(b"ledoff\n")
 
-        st.write("Set LED state to {led_command}")
+        st.write(f"Set LED state to {led_command}")
 
         if beep_command:
             ser.write(b"beep\n")
